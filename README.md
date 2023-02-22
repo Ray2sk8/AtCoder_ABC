@@ -1,2 +1,2 @@
 # AtCoder_ABC
-AtCoderBeginnersContest
+This is my recording of the [AtCoder Beginners Contest](https://kenkoooo.com/atcoder/#/table/).
