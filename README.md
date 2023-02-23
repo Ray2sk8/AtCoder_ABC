@@ -1,7 +1,7 @@
 # AtCoder_ABC
-AtCoder ABC from the [AtCoder](https://atcoder.jp/?lang=ja)  
+AtCoder ABC from the [AtCoder](https://atcoder.jp/?lang=ja).
 
-This is my recording of the [AtCoder](https://atcoder.jp/?lang=ja)
+This is my recording of the [AtCoder](https://atcoder.jp/?lang=ja).
 
 I use [AtCoder Problems' Training](https://kenkoooo.com/atcoder/#/table/).
 I was not able to take part in the competition.
