@@ -1,6 +1,23 @@
+/**
+ * @file b.cpp
+ * @author your name (you@domain.com)
+ * @brief 
+ * @version 0.1
+ * @date 2023-02-24
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
+
 #include <iostream>
 
 using namespace std;
+
+/***
+ * 配列で10^10はメモリが足りない
+ * 
+*/
 
 int main(void)
 {
