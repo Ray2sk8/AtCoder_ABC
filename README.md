@@ -10,5 +10,6 @@ My ArCoder account is [here](https://atcoder.jp/users/Ray_sk8).
 
 
 
-### commit message rule
-XXX Problem Number
+## commit message rule
+If I have solved problems A and B in the ABC_XXX  and have not yet solved problem C.
+# XXX A,B AC. C is WA.
