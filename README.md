@@ -10,7 +10,7 @@ My ArCoder account is [here](https://atcoder.jp/users/Ray_sk8).
 
 
 
-## commit message rule
+## commit message rules
 If you have solved problems A and B of ABC_XXX, but have not solved problem C, 
 then do the following.
 #### XXX A,B AC. C is WA.
