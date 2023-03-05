@@ -8,24 +8,36 @@ int main()
     ll N;
     cin >> N;
     int count = 0;
-    bool ans = false;
+    int r = 0;
+    int l = 0;
 
-    for (int a = 1; a <= N - 1; a++)
-    {
-        for (int b = a; b <= (N - 1) / a; b++)
+    for (int i = 1; i <= N; i++)
+    { // 全探索
+        int X = i;
+        int Y = N - i;
+        int r = 0;
+        int l = 0;
+
+        for (int a = 1; a * a <= X; a++)
         {
-            for (int c = 1; c <= (N - (a * b)) + 1; c++)
+            if (X % a == 0)
             {
-                for (int d = c; d <= (N - ((a * b) + c) + 1); d++)
-                {
-                    if ((a * b + c * d) == N)
-                    {
-                        count++;
-                        break;
-                    }
-                }
+                r++;
+                if (a*a != X)
+                    r++;
             }
         }
+
+        for (int a = 1; a * a <= Y; a++)
+        {
+            if (Y % a == 0)
+            {
+                l++;
+                if (a*a != Y)
+                    l++;
+            }
+        }
+        count += r * l;
     }
 
     cout << count << endl;
