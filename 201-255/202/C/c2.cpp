@@ -22,7 +22,6 @@ int main() {
         cin >> C[i];
     }
 
-
     //Dを作る
     vector<int> D(N + 1);
     vector<int> cnt(N + 1);
