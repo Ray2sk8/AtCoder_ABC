@@ -31,6 +31,7 @@ int main()
                     tCount++;
                 }
             }
+            //ダブりがある
             if(sCount && tCount){
                 cout << "No" << endl;
                 return 0;
