@@ -13,7 +13,7 @@ int main(void) {
         for (int x = 1; x <= w; x++)
             cin >> a[x][y];
 
-    // path?
+    // path
     int p[20], l = h + w - 2, ans = 0;
     for (int i = 1; i <= l; i++) {
         if (i > w - 1)
@@ -27,6 +27,7 @@ int main(void) {
         int x = 1, y = 1;
         set<int> S;
         S.insert(a[1][1]);
+        //cout << "a[1][1]:" << a[1][1] << endl;
         for (int i = 1; i <= l; i++) {
             if (p[i])
                 y++;
@@ -34,9 +35,11 @@ int main(void) {
                 x++;
             S.insert(a[x][y]);
         }
+        // cout << "s.size():" << S.size() << endl;
         if (S.size() == l + 1)
             ans++;
-    } while ( next_permutation(p + 1, p + l + 1) );
+        // cout << "p+1" << p + 1 << "  P+l+1" << p + l + 1 << endl;
+    } while (next_permutation(p + 1, p + l + 1)); // 配列は[1]スタート
 
     cout << ans << endl;
     return 0;
