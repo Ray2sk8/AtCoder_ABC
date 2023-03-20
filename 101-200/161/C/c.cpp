@@ -6,7 +6,12 @@ using ll = long long;
 
 int main(){
 
-    cout <<  << endl; 
+    ll N,K;
+    cin >> N >> K;
+
+    N = min( N%K, K - N%K );
+
+    cout << N << endl; 
 
     return 0;
 }
