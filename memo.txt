@@ -1,0 +1,37 @@
+bit探索
+293 C make him happy
+
+順列全探索
+
+
+深さ優先探索（DFS）
+abc228 B
+https://atcoder.jp/contests/abc228/tasks/abc228_b
+
+
+動的計画法
+
+
+ダイクストラ法
+
+ワーシャルフロイド法
+
+素数判定
+
+べき乗を高速計算
+
+逆元を計算
+
+累積和
+
+グラフ理論
+
+木構造
+
+Union-Find
+
+source:
+//atcoder のタグまとめ
+https://atcoder-tags.herokuapp.com/explain
+// Qiitaの記事
+https://qiita.com/c-yan/items/56a051d826b873b4f78d
