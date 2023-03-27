@@ -1,21 +1,21 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+vector<vector<int>> s(100000);
 
 int main() {
     int n;
     cin >> n;
-    map<int, int> mp;
+
     for (int i = 0; i < n; i++) {
         int a;
         cin >> a;
-        ++mp[a];
+        s.at(a).push_back(1);
     }
 
     int ans = 0;
-    for (auto [a, cnt] : mp) {
-        ans += cnt / 2;
-        cout << "first:" << a << " 2nd:" << cnt << endl;
+    for (auto x : s) {
+        ans += x.size() / 2;
     }
     cout << ans << endl;
 }
