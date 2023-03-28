@@ -5,7 +5,7 @@ using namespace std;
 using ll = long long;
 
 int N;
-vector<int> A(N + 1);
+vector<int> A(1000);
 int D, X;
 
 // int aiNum(int id) {
