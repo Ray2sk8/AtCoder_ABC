@@ -28,7 +28,7 @@ int main() {
 
     int m = 1e5;
 
-    for (int i = 0; i < (int)s.size()-2; i++) {
+    for (int i = 0; i <= (int)s.size()-3; i++) {
         int x = abs(fS3(i) - 753);
         m = min(x, m);
     }
