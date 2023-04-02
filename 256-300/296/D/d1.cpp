@@ -1,21 +1,36 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-#define INF (long long)2e+18
+using ll = long long;
+const ll INF = 1LL << 60;
 
 int main() {
-    long long n, m, x, ans = INF;
-    cin >> n >> m;
-    for (long long i = 1; i <= n; i++) {
-        x = (m + i - 1) / i;
-        if (x <= n)
-            ans = min(ans, i * x);
-        if (i > x)
-            //aがルートM以上になった
-            break;
+    cout << fixed << setprecision(20);
+    ll N, M;
+    cin >> N >> M;
+
+    ll ans = INF;
+    // a <= b としても一般性を失わない
+    // このときa <= √M まで全探索すれば良い
+    for (ll a = 1; a <= N; a++) {
+        // このときbはceil(M / a)
+        ll b = ceil(M / a);
+        // ll x = a * b;
+        // cout << "a:" << a << " b:" << b << " x:" << x << endl;
+        for (int j = b; j <= N; j++) {
+            ll x = a * j;
+            // cout << "a:" << a << " b:" << b << " x:" << x << endl;
+            if (x > ans) {
+                break;
+            }
+            if (a <= N && b <= N && x >= M) {
+                // cout << "A:" << a << " b:" << b << " x:" << x << endl;
+                ans = min(ans, x);
+            } else if (b < a) {
+                break;
+            }
+        }
     }
 
-    
     if (ans == INF)
         cout << -1 << endl;
     else
