@@ -9,13 +9,12 @@ int main() {
     cin >> A >> B;
     if (A < B)
         swap(A, B);
+    // cout << A << " " << B << " " << cnt << endl;
 
-    while (1) {
+    while (B >= 1) {
         if (A == B) {
             break;
         }
-
-        // cout << A << " " << B << " " << cnt << endl;
 
         // 同じ数字がくることはない
         //  Bが１ならばA＝B=1となる
@@ -27,9 +26,13 @@ int main() {
         } else {
             cnt += A / B;
             A = A % B;
+            if(A==0){
+                cnt--;
+            }
         }
         if (A < B)
             swap(A, B);
+        // cout << A << " " << B << " " << cnt << endl;
     }
 
     cout << cnt << endl;
