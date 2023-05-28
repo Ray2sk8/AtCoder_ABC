@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 // #include <iostream>
+=======
+>>>>>>> a6b5a2a76598df4cac219aaafd197826cdc50c9b
 #include <bits/stdc++.h>
 
 using namespace std;
 using ll = long long;
 
+<<<<<<< HEAD
 int main() {
     ll N;
     string str;
@@ -33,3 +37,11 @@ int main() {
 
     return 0;
 }
+=======
+
+int main(){
+
+
+    return 0;
+}
+>>>>>>> a6b5a2a76598df4cac219aaafd197826cdc50c9b
