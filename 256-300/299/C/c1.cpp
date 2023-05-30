@@ -11,6 +11,8 @@ int main() {
     cin >> N;
     cin >> s;
     bool ball = false;
+    bool flg_kushi = false;
+    bool flg_dabgo = false;
     int level = 0;
     int ans = -1;
 
@@ -27,25 +29,31 @@ int main() {
                 // Lv上げ中
                 level++;
             }
+            flg_dabgo = true;
             break;
 
         case '-':
             if (ball == true) {
-                //くしざき
+                // くしざき
 
                 ball = false;
                 // if(ball_end - ball_start == level){
                 //     // cout << "bingo:" << level << endl;
                 // }
 
-                // 最大値更新 
+                // 最大値更新
                 ans = max(level, ans);
             }
             level = 0;
+            flg_kushi = true;
             break;
 
         default:
             break;
+        }
+
+        if (flg_dabgo && flg_kushi) {
+            ans = max(level, ans);
         }
     }
 

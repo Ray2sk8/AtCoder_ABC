@@ -4,6 +4,10 @@
 using namespace std;
 using ll = long long;
 
+<<<<<<< HEAD
+int main()
+{
+=======
 long long L[100];
 
 int main() {
@@ -18,6 +22,7 @@ int main() {
     }
 
     cout << L[N] << endl;
+>>>>>>> a6b5a2a76598df4cac219aaafd197826cdc50c9b
 
     return 0;
 }
