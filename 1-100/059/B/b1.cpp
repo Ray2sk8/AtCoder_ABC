@@ -6,7 +6,7 @@ using ll = long long ;
 
 int main()
 {
-    double A,B;
+    ll A,B;
     cin >> A >> B;
 
     if(A>B){
