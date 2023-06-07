@@ -4,6 +4,12 @@
 #read TYPE
 #URDirecory=$(find -name "$TYPE" -type d)
 find -name "$1" -type d
+
+cd -- ./*/"$1"
+
+#以下の変更が必要
+#alias sd='source sD_name.sh'
+
 #if [ $? ]; then
     #マッチあり
 #    echo "$TYPE is existed." 

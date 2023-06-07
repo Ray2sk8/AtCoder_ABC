@@ -15,14 +15,15 @@ using ll = long long;
 #define INF (long long)2e+18
 
 int main() {
-    long long n, m, b, ans = INF;
-    cin >> n >> m;
-    for (long long i = 1; i <= n; i++) {
-        b = (m + i - 1) / i;
+    long long N, M, b, ans = INF;
+    cin >> N >> M;
+
+    for (long long i = 1; i <= N; i++) {
+        b = (M + i -1) / i;
         ll x = i * b;
         cout << "  a:" << i << " b:" << b; //<< endl;
         cout << " x:" << x << endl;
-        if (b <= n) {
+        if (b <= N) {
             ans = min(ans, x);
         }
         if (i > b) {
@@ -30,9 +31,6 @@ int main() {
         }
     }
 
-    if (ans == INF)
-        cout << -1 << endl;
-    else
-        cout << ans << endl;
+    cout << ans << endl;
     return 0;
 }
