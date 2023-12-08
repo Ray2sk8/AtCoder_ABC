@@ -1,3 +1,6 @@
+main ブランチ最小化は無理　今のところ、、、、
+
+
 bit探索
 293 C make him happy
 
