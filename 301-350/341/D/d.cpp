@@ -4,37 +4,43 @@
 using namespace std;
 using ll = long long;
 
+ll N, M, K, lcmX;
+
+ll cntK(ll num) {
+    ll ret;
+
+    ret = (ll)(num / N) + (ll)(num / M) - (ll)(num / lcmX) * 2;
+
+    return ret;
+}
+
 int main() {
-    ll N, M, K;
+
     cin >> N >> M >> K;
 
-    ll X = std::lcm(N, M);
+    lcmX = (N * M) / gcd(N, M);
 
-    ll flg_set = 0;
-    for (ll i = 1; i < X; ++i) {
-        if (i % N == 0 || i % M == 0) {
-            ++flg_set;
+    ll l = 1;
+    // r:条件を満たす
+    ll r = 1e20;
+    ll mid;
+    while (l < r) {
+        mid = (l + r) / 2;
+
+        if (cntK(mid) >= K) {
+            r = mid;
+        }
+        //  else if (cntK(mid) == K) {
+        //     r = mid;
+        //     break;
+        // }
+        else {
+            l = mid + 1;
         }
     }
 
-    // setの個数
-    ll set_num = K / flg_set;
 
-    // cnt: flg
-    ll cnt = set_num * flg_set;
-    // 　数
-    ll num = set_num * X;
-
-    for (ll i = 1+num; i <= X; ++i) {
-        if (i % N == 0 || i % M == 0) {
-            ++cnt;
-            ++num;
-        }
-        if (cnt == K)
-            break;
-    }
-
-    cout << num << endl;
+    cout << r << endl;
 
     return 0;
 }
