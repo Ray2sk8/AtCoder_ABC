@@ -16,10 +16,8 @@ int main() {
     }
 
     long long minx = S, sum = 0;
-    for (int i = 1; i <= N-1; i++) {
-        // i=N, sum=S 棒全体になる
+    for (int i = 1; i <= N; i++) {
         sum += A[i];
-        // S-sum : もう一方
         minx = min(minx, abs(sum - (S - sum)));
     }
     cout << minx << endl;
