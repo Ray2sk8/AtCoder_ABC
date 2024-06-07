@@ -21,7 +21,7 @@ int main() {
             r--;
         }
         cnt += N - r;
-        cout << "cnt:" << cnt << endl;
+        // cout << "cnt:" << cnt << endl;
     }
 
     for (int i = 0; i < N; i++) {

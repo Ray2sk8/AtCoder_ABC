@@ -12,78 +12,45 @@ int main() {
     vector<int> A(T + 1);
     for (int i = 1; i <= T; i++) {
         cin >> A[i];
+        A[i]--;
     }
 
-    vector<pair<int, int>> xy(N + 1);
-    // bingo x,y
-    for (int i = 1; i <= T; i++) {
-        xy[i].first = A[i] / N;
-        xy[i].second = A[i] % N;
-    }
-
-    bool flg = false;
-    // int ans = 0;
+    // x
+    vector<int> check_x(N, 0);
+    vector<int> check_y(N, 0);
+    vector<int> check_cross(2, 0);
     int cnt = 0;
-    while (flg == false && cnt <= T) {
-        cnt++;
-        int x = xy[cnt].first;
-        int y = xy[cnt].second;
-        bg[x][y] = true;
-        if (cnt <= N) {
-            continue;
+    for (int i = 1; i <= T; i++) {
+        int x = A[i] / N;
+        int y = A[i] % N;
+
+        // Bingoの穴をあける
+        check_x[x]++;
+        check_y[y]++;
+        if (x == y) {
+            check_cross[0]++;
+        }
+        if (x + y == N - 1) {
+            check_cross[1]++;
         }
 
-        // たて
-        for (int i = 0; i < N; i++) {
-            int bg_n = 0;
-            for (int j = 0; j < N; j++) {
-                if (bg[i][j] == true) {
-                    bg_n++;
-                }
-                // bing check
-                if (bg_n == N) {
-                    flg = true;
-                }
-            }
-        }
-
-        // よこ
-        for (int i = 0; i < N; i++) {
-            int bg_n = 0;
-            for (int j = 0; j < N; j++) {
-                if (bg[j][i] == true) {
-                    bg_n++;
-                }
-                // bing check
-                if (bg_n == N) {
-                    flg = true;
-                }
-            }
-        }
-        // ななめ
-        for (int i = 0; i < N; i++) {
-            int bg_n = 0;
-            if (bg[i][i] == true) {
-                bg_n++;
-            }
-            // bing check
-            if (bg_n == N) {
-                flg = true;
-            }
-        }
-        for (int i = 0; i < N; i++) {
-            int bg_n = 0;
-            if (bg[i][N - i] == true) {
-                bg_n++;
-            }
-            // bing check
-            if (bg_n == N) {
-                flg = true;
-            }
+        // Bingoチェック
+        if (check_x[x] == N) {
+            cnt = i;
+            break;
+        } else if (check_y[y] == N) {
+            cnt = i;
+            break;
+        } else if (check_cross[0] == N) {
+            cnt = i;
+            break;
+        } else if (check_cross[1] == N) {
+            cnt = i;
+            break;
         }
     }
 
-    if (flg) {
+    if (cnt != 0) {
         cout << cnt << endl;
     } else {
         cout << -1 << endl;
