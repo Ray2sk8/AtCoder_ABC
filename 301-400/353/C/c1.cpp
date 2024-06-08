@@ -9,24 +9,27 @@ int main() {
 
     int N;
     cin >> N;
+
     vector<ll> A(N);
     for (int i = 0; i < N; i++) {
         cin >> A[i];
     }
     sort(A.begin(), A.end());
 
-    int r = N;
-    ll ans = 0, cnt = 0;
-    for (int i = 0; i < N - 1; i++) {
-        r = max(r, i + 1);
-        while (r - 1 > i && A[r - 1] + A[i] >= MOD) {
-            r--;
+    int r = 0;
+    ll cnt = 0;
+    for (int i = 0; i < N; i++) {
+        r = max(r - 1, i + 1);
+
+        while (r < N && A[r] + A[i] < MOD) {
+            r++;
         }
         cnt += N - r;
     }
 
+    ll ans = 0;
     for (int i = 0; i < N; i++) {
-        ans += A[i] * (N - 1);
+        ans += ll(A[i]) * (N - 1);
     }
     ans -= cnt * MOD;
 

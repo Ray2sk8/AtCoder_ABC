@@ -7,32 +7,33 @@ int main() {
     int N;
     cin >> N;
 
-    vector<int> A(N);
-    for (int i = 0; i < N; ++i) {
+    // sort
+    vector<int> A(N + 1);
+    // 数字がどこにあるか
+    vector<int> pos(N + 1);
+    for (int i = 1; i <= N; ++i) {
         cin >> A[i];
+        pos[A[i]] = i;
     }
 
-    vector<pair<int, int>> operations;
-    for (int i = 0; i < N; ++i) {
-        int target = i + 1;
-        if (A[i] != target) {
-            // A[i] が target でない場合、A[i] と target の位置を交換する必要がある
-            int pos = -1;
-            for (int j = i + 1; j < N; ++j) {
-                if (A[j] == target) {
-                    pos = j;
-                    break;
-                }
-            }
-            // 位置 pos と位置 i の要素を交換する
-            swap(A[i], A[pos]);
-            operations.emplace_back(i + 1, pos + 1);
+    vector<pair<int, int>> V;
+    int num = 0;
+
+    for (int i = 1; i <= N; ++i) {
+        int target = i;
+        // targetが配列通りか
+        if (A[target] != target) {
+            // targetの位置
+            int p = pos[target]; // target,p で入れ替え
+            // 入れ替えの数字
+            int B = A[p];
+            V.push_back(make_pair(target, p));
+            // 入れ替え
+            int a = A[target];
+            int b = B;
+            int b_pos = p;
+            
         }
-    }
-
-    cout << operations.size() << endl;
-    for (const auto& op : operations) {
-        cout << op.first << " " << op.second << endl;
     }
 
     return 0;
