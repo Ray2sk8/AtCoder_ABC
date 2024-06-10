@@ -1,41 +1,43 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <utility> // for std::pair, std::make_pair
 
 using namespace std;
-using ll = long long;
 
 int main() {
-
     int N;
     cin >> N;
 
+    // Initialize arrays
     vector<int> A(N + 1);
-    for (int i = 1; i <= N; i++) {
+    vector<int> pos(N + 1);
+    for (int i = 1; i <= N; ++i) {
         cin >> A[i];
+        pos[A[i]] = i;
     }
 
-    vector<int> B;
-    vector<int> C;
+    vector<pair<int, int>> swaps;
 
-    ll cnt = 0;
-    int x;
-    for (int i = 1; i <= N; i++) {
-        for (int j = i + 1; j <= N; j++) {
-            if (A[i] > A[j]) {
-                // 交代
-                x = A[i];
-                A[i] = A[j];
-                A[j] = x;
+    for (int i = 1; i <= N; ++i) {
+        if (A[i] != i) {
+            // Correct position for A[i]
+            int correct_pos = pos[i];
 
-                B.push_back(i);
-                C.push_back(j);
-                cnt++;
-            }
+            // Record the swap
+            swaps.push_back(make_pair(i, correct_pos));
+
+            // Swap A[i] and A[correct_pos]
+            swap(A[i], A[correct_pos]);
+
+            // Update positions in the pos array
+            pos[A[correct_pos]] = correct_pos;
+            pos[A[i]] = i;
         }
     }
 
-    cout << cnt << endl;
-    for (int i = 0; i < cnt; i++) {
-        cout << B[i] << " " << C[i] << endl;
+    // Output the swaps
+    for (const auto& swap_pair : swaps) {
+        cout << swap_pair.first << " " << swap_pair.second << endl;
     }
 
     return 0;

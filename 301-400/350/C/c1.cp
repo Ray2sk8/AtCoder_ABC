@@ -22,21 +22,18 @@ int main() {
         // targetが配列通りか
         if (A[i] != i) {
             // 調べているAの位置
-            int p_A = pos[i]; // i に A[p_A] がある
+            int p_A = pos[A[i]]; // p にAがある
+            // i に今入っている 数字は A[i]
+            int p_B = pos[A[i]];
             V.push_back(make_pair(i, p_A));
 
-            pos[A[i]] = i;
-            pos[A[p_A]] = p_A;
             swap(A[i], A[p_A]);
+            swap(pos[i], pos[p_A]);
         }
     }
 
-    if (V.size() > 0) {
-        for (auto x : V) {
-            cout << x.first << " " << x.second << endl;
-        }
-    } else {
-        cout << 0 << endl;
+    for (auto x : V) {
+        cout << x.first << " " << x.second << endl;
     }
 
     return 0;
