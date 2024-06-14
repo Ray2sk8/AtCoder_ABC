@@ -1,34 +1,37 @@
+// WA
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
+struct DATA {
+    int a;
+    int pos;
+};
+
 int main() {
     int N;
     cin >> N;
 
-    // sort
-    vector<int> A(N + 1);
     // 数字がどこにあるか
-    vector<int> pos(N + 1);
-    for (int i = 1; i <= N; ++i) {
-        cin >> A[i];
-        pos[A[i]] = i;
+    vector<DATA> A(N + 1);
+    for (int i = 1; i <= N; i++) {
+        cin >> A[i].a;
+        int j = A[i].a;
+        A[j].pos = i;
     }
 
     vector<pair<int, int>> V;
-
     for (int i = 1; i < N; ++i) {
         // targetが配列通りか
-        if (A[i] != i) {
+        int target = A[i].a;
+        if (target != i) {
             // 調べているAの位置
-            int p_A = pos[i]; // i に A[p_A] がある
+            int p_A = A[i].pos; // pos番目 に 数字 i がある
+
             V.push_back(make_pair(i, p_A));
             // 更新
-            pos[A[i]] = p_A;
-            pos[A[p_A]] = i;
             swap(A[i], A[p_A]);
-
         }
     }
 
