@@ -19,13 +19,13 @@ int main() {
     vector<pair<int, int>> V;
 
     for (int i = 1; i < N; ++i) {
-        // targetが配列通りか
-        if (A[i] != i) {
+        int target = A[i];
+        if (target != i) {
             // 調べているAの位置
             int p_A = pos[i]; // i に A[p_A] がある
             V.push_back(make_pair(i, p_A));
             // 更新
-            pos[A[i]] = p_A;
+            pos[target] = p_A;
             pos[A[p_A]] = i;
             swap(A[i], A[p_A]);
 
