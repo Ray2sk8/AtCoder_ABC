@@ -3,10 +3,18 @@
 using namespace std;
 using ll = long long;
 
+int main() {
 
-int main(){
+    string s, c;
+    cin >> s;
+    c = s;
+    c[0] = '0';
 
-    cout <<  << endl; 
+    for (int i = 1; i <= s.size(); i++) {
+        c[i] = s[i - 1];
+    }
+
+    cout << c << endl;
 
     return 0;
 }
